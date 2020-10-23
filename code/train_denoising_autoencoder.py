@@ -35,7 +35,9 @@ from users_dataset import UsersDatasetAutoencoder
 import pickle
 import gc
 plt.switch_backend('agg')
-device = torch.device("cuda")
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print('Using device:', device)
 
 
 def tensor_from_sentence(sentence):
